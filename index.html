@@ -25,7 +25,7 @@
 	    <div class="header">
 
 	      <div class="container">
-	        <h1 id="app_title">{{movies[0].title}}</h1>
+	        <h1 id="app_title">{{title}}</h1>
 	      </div>
 
 	    </div>
@@ -34,9 +34,8 @@
 
 	      <div class="row">
 
-	        <div class="col-md-6">
+	        <div class="col-md-6" v-for="(movie,index) in movies" :key='index' >
 	            <div class="thumbnail">
-
 						<img class="poster img-fluid"  :src="movies[0].posters[movies[0].posterindex]" alt="Movie Poster"/>
 						<div class="imageInfo">{{movies[0].posterIndex}}</div>
 
@@ -44,7 +43,7 @@
 						<p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{movies[0].iscore}}</p>
 						<p class="runtime">Runtime: {{movies[0].runtime}}</p>
 						<p class="released">Released: {{movies[0].released}}| Rated: {{movies[0].rating}}</p>
-						<p class="websites">Websites: <aa :href="movies[0].imdb"> imdb </a> | <a:href="movies[0].website">website</a></p>
+						<p class="websites">Websites: <a :href="movies[0].imdb"> imdb </a> | <a :href="movies[0].website">website</a></p>
 
 			            <div class="social">
 			              <p class="likes"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{movies[0].likes}}</p>
@@ -59,7 +58,7 @@
 	    <div class="footer">
 	      <div class="container">
 			<a id="github" class="btn btn-lg btn-warning" :href="github">
-				<i class="bi bi-github me-2"></i>{{movies[0].owner}}
+				<i class="bi bi-github me-2"></i>{{owner}}
 	  		</a>
 	      </div>
 	    </div>
