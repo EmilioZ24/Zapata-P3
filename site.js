@@ -42,10 +42,19 @@ const vue_app = Vue.createApp({
     },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
-         getMonthText() {
-                ('')
-                }
+            getMonthText() {
+            return{
+                date:[],  
+            }
+                
+                },
+      likes(index){
+            this.movies[index].likes++;
+      },
+      dislikes(index){
+            this.movies[index].dislikes++;
       }
-})
+}
+});
 
 vue_app.mount("#vue_app")
