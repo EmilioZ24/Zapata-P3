@@ -41,19 +41,32 @@ const vue_app = Vue.createApp({
       }
     },
       methods: {
-            /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
-            getMonthText() {
-            return{
-                date:[],  
-            }
-                
+    /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
+       getMonthText(dateArray) {
+             const months = [
+                   'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                  ];
+            
+                  const month = months[dateArray[1] - 1];
+                  const day = dateArray[2];
+                  const year = dateArray[0];
+            
+                  return `${month} ${day}, ${year}`;
                 },
       likes(index){
             this.movies[index].likes++;
       },
       dislikes(index){
             this.movies[index].dislikes++;
-      }
+      },
+      posterClick(index) {
+            const movie = this.movies[index];
+            const numPosters = movie.posters.length;
+      
+            // Increment posterindex for the movie at the given index
+            movie.posterindex = (movie.posterindex + 1) % numPosters;
+          }
 }
 });
 
